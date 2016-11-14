@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style>
+body {
+
+  background-image: url("/img/binary.jpg");
+}
+</style>
+</head>
+<body>
+
+<div style="width:100%;margin:10px auto;">
+<br>
+	<p class = "title">Major Listings</p>
+	<table class="table table-striped" >
+
+	 <colgroup>
+    <col style="width:   40%" />
+    <col style="width:    30%" />
+    <col style="width:    30%" />
+  </colgroup>
+
+
+		<thead>
+			<tr><th>Name</th>
+			<th class="text-center">Credits Needed</th>
+			<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="major in ctrl.majors">
+			<!-- <td ng-bind="student.first_name + ' ' + student.last_name"></td> -->
+			<td><a href="#/major/{{major.id}}">{{major.name}}</a></td>
+			<td class="text-center" ng-bind="major.req_credits"></td>
+			<td><a href="#/major/classes_for_major/{{major.id}}">Required Classes</a></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>

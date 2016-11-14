@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link href="style2.css" rel="stylesheet">
+  
+</head>
+<body>
+
+<div style="width:50%;margin:10px auto;">
+  <h1>Academic Portal</h1>
+  <p>This is the student academic portal for student.id {{ctrl.id}}</p>
+
+  <div ng-show="ctrl.showSchedule();">
+  	<table class="table">
+  	<thead>
+  		<tr><td>Course #</td><td>Name</td><td>Section</td><td>Room</td><td>Days</td><td>Time</td><td>Instructor</td></tr>
+  	</thead>
+  	<tbody>
+  		<tr ng-repeat="_class in ctrl.schedule">
+  		  <td ng-bind="_class.crn"></td>
+        <td ng-bind="_class.class_id.department_id.code + ' ' + _class.class_id.num"></td>
+        <td ng-bind="_class.sect"></td>
+        <td ng-bind="_class.classroom_id.building_id.name + ' ' + _class.classroom_id.num"></td>
+        <td>{{ctrl.print_days(_class.mon, _class.tues, _class.wed, _class.thurs, _class.fri, _class.sat, _class.onl);}}</td>
+        <td>{{ctrl.parse_time(_class.begin_time, _class.end_time)}}</td>
+        <td ng-bind="_class.instructor_id.first_name + ' ' + _class.instructor_id.last_name"></td>
+        <td><button class="remove dash2 dash_btn">Withdraw</button></td>
+  		</tr>
+  	</tbody>
+  	</table>
+  </div>
+
+  <a href="#/student">View Profile</a>&nbsp; &nbsp;
+  <a href="#/student_transcript">View Transcript</a> &nbsp; &nbsp;
+  <a href="#/student_audit">Audit</a> &nbsp; &nbsp;
+  <a href="#/student_register">Register</a>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+</body>
+</html>

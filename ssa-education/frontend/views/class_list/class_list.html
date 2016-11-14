@@ -1,0 +1,19 @@
+<div style="width:50%;margin:10px auto;">
+	<h1>Class Listing</h1>
+	<table class="table">
+		<thead>
+			<tr><td>Course</td><td>CRN</td><td>Section</td><td>Classroom</td><td>Days</td><td>Time</td><td>Instructor</td></tr>
+		</thead>
+		<tbody ng-repeat="class in ctrl.class_list">
+		<tr>
+			<td><a ng-href="{{ctrl.generateClassLink(class.class_id.id)}}">{{class.class_id.department_id.code + ' ' + class.class_id.num}}</a></td>
+			<td ng-bind="class.crn"></td>
+			<td ng-bind="class.sect"></td>
+			<td ng-bind="class.classroom_id.building_id.name + ' ' + class.classroom_id.num"></td>
+			<td>{{ctrl.print_days(class.mon, class.tues, class.wed, class.thurs, class.fri, class.sat, class.onl);}}</td>
+			<td>{{ctrl.parse_time(class.begin_time, class.end_time)}}</td>
+			<td ng-bind="class.instructor_id.first_name + ' ' + class.instructor_id.last_name"></td>
+		</tr>
+		</tbody>
+	</table>
+</div>

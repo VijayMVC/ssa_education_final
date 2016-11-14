@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+
+body {
+
+  background-image: url("/img/tranbackground.jpg");
+}
+  
+.warning {
+
+  color: red;
+  font-size: 25px;
+}
+
+</style>
+<script>
+$("#enroll_button").on("click", function() {
+   $("body").scrollTop(3);
+});
+
+</script>
+
+
+
+</head>
+<body>
+<br/>
+<div style="width:100%;margin:10px auto;">
+  <p class = "title">Course Registration</p>
+  <!-- <p>This is the place for student {{ctrl.id}} to register</p> -->
+  <br/>
+
+  <div style="width:70%; margin:10px auto;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center" colspan="6">Class Search</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-xs-3">
+            <input id="by_crn" name="search_by" type="radio" selected="true" checked /> &nbsp;
+            <label class="search_label">Course #</label>    
+          </td>
+          <td class="col-xs-9">
+            <input type="text" id="crn" name="crn" ng-model="ctrl.crn" 
+              ng-disabled="ctrl.search_class" placeholder = "Enter 5 Digit Course #" /pattern="\d*" title="Course # can contain only digits" maxlength="5" />
+          </td>
+        </tr>
+        <tr>
+          <td class="col-xs-3">
+            <input id="by_class" name="search_by" type="radio" /> &nbsp;
+            <label class="search_label">By Class</label>  
+          </td>
+          
+          <td class="col-xs-9">
+            <label class="search_label">Department:</label> &nbsp;
+            <select name="department" id="department" ng-model="ctrl.selected_department" ng-options="obj.id as obj.code for obj in   
+                ctrl.departments" ng-disabled="!ctrl.search_class" style="width:100px">
+            </select> &nbsp;
+
+            <label for="nums" class="search_label">#:</label> &nbsp;
+            <select name="nums" id="nums" ng-model="ctrl.selected_num" ng-options="obj.id as obj.num for obj in ctrl.nums" 
+                ng-disabled=" !ctrl.search_class" style="width:70px"></select> &nbsp;
+
+            <label for="sect" class="search_label">Section:</label> &nbsp;
+            <select name="sect" id="sect" ng-model="ctrl.selected_sect" ng-options="obj.id as obj.sect for obj in ctrl.sections" 
+                ng-disabled="!ctrl.search_class" style="width:70px">
+            </select> 
+          </td>
+          
+        </tr>
+        <tr>
+          <td class="text-center" colspan="2"><button type="submit" class="search_button dash dash-btn" ng-click="ctrl.submit()">Search for Class</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div ng-show="ctrl.show_class">
+    <table class="table striped-table">
+      <thead><th class="text-center" colspan="4">Search Result</th></thead>
+      <tbody>
+        <tr>
+          <td>Course #</td>
+          <td style="width:30%;"><input class="form-control" type="text" ng-model="ctrl._class.crn" id="course-num" 
+              readonly="readonly" style="font-size:100%;" /></td>
+          <td class="text-right">Class Name</td>
+          <td><input class="form-control" type="text" ng-value="ctrl.print_class_name(ctrl._class.class_id)" id="course-name"
+              readonly="readonly" style="font-size:100%;" /></td>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td colspan="3"><input class="form-control" type="text" ng-model ="ctrl._class.class_id.name" id="course-title" 
+              readonly="readonly" style="font-size:100%;"></td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td colspan="3"><textarea class="form-control" rows="5" cols="50" readonly="readonly" ng-model="ctrl._class.class_id.description" 
+              id="course-description" style="font-size:100%;"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Section</td>
+          <td><input class="form-control" type="text" ng-model="ctrl._class.sect" id="course-description" 
+              readonly="readonly" style="font-size:100%;"></td>
+          <td class="text-right">Room</td>
+          <td><input class="form-control" type="text" ng-value="ctrl.print_room(ctrl._class.classroom_id)" id="course-room"
+              readonly="readonly" style="font-size:100%;"></td>
+        </tr>
+        <tr>
+          <td>Days</td>
+          <td><input class="form-control" type="text" ng-value="ctrl.print_days(ctrl._class.mon, ctrl._class.tues, 
+              ctrl._class.wed, ctrl._class.thurs, ctrl._class.fri, ctrl._class.sat, ctrl._class.onl);" id="course-days" 
+              readonly="readonly" style="font-size:100%;"></td>
+          <td class="text-right">Time</td>
+          <td><input class="form-control" type="text" ng-value="ctrl.parse_time(ctrl._class.begin_time, ctrl._class.end_time)" 
+              id="course-time" readonly="readonly" style="font-size:100%;"></td>
+        </tr>
+        <tr>
+          <td>Instructor</td>
+          <td><input class="form-control" type="text" ng-value="ctrl.print_instructor(ctrl._class.instructor_id)" 
+              id="course-instructor" readonly="readonly" style="font-size:100%;"></td>
+          <td class="text-right">Seats</td>
+          <td><input class="form-control" type="text" ng-value="ctrl.print_seats(ctrl._class.classroom_id, ctrl._class.id)" 
+              id="course-seats" readonly="readonly" style="font-size:100%;"></td>
+        </tr>
+        <tr>
+          <td class="text-center" colspan="4"><button id="enroll_button" class="dash dash-btn" ng-disabled="ctrl.seats_left <= 0">Enroll
+              </button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div ng-show="ctrl.show_crn_not_found" style="border:2px solid red; margin:10px auto; width:70%;">
+    <p class = "warning">ERROR: No course for Course # can be found.</p>
+  </div>
+
+  <div ng-show="ctrl.show_repeat" style="border:2px solid red; margin:10px auto; width:70%;">
+    <p class = "warning">ERROR: Course not added - you have already signed up for a section of this class.</p>
+  </div>
+
+  <div ng-show="ctrl.show_prereqs_not_met" style="border:2px solid red; margin:10px auto; width:70%;">
+    <p class = "warning">ERROR: Course not added - you have not met the following prerequisites:</p>
+    <ul ng-repeat="prereq in ctrl.prereqs_left">
+      <li><a  style="color:blue";  class = "warning"ng-href="#/course_offerings/department/{{prereq.prereq_class_id.department_id.id}}">{{prereq.prereq_class_id.department_id.code + " " + prereq.prereq_class_id.num}}</a></li>
+    </ul>
+  </div>
+
+  <div ng-show="ctrl.added_classes.length > 0">
+  	<table class="table">
+  	<thead>
+      <tr><th class="text-center" colspan="8">Added Classes</th></tr>
+  		<tr>
+        <th>&nbsp;</th>
+        <th class="cl_header">Course #</th>
+        <th class="cl_header">Name</th>
+        <th class="cl_header">Section</th>
+        <th class="cl_header">Room</th>
+        <th class="cl_header">Days</th>
+        <th class="cl_header">Time</th>
+        <th class="cl_header">Instructor</th>
+      </tr>
+  	</thead>
+  	<tbody>
+  		<tr ng-repeat="_class in ctrl.added_classes">
+  			<td><button class="dash dash-btn remove" ng-click="ctrl.deleteAddedClass(_class.crn, 
+        _class.class_id.department_id.code + ' ' + _class.class_id.num)" style="font-size:80%">Remove</button></td>
+  			<td ng-bind="_class.crn"></td>
+  			<td ng-bind="ctrl.print_class_name(_class.class_id)"></td>
+			   <td ng-bind="_class.sect"></td>
+			  <td ng-bind="ctrl.print_room(_class.classroom_id)"></td>
+			   <td>{{ctrl.print_days(_class.mon, _class.tues, _class.wed, _class.thurs, _class.fri, _class.sat, _class.onl);}}</td>
+			   <td>{{ctrl.parse_time(_class.begin_time, _class.end_time)}}</td>
+			   <td ng-bind="ctrl.print_instructor(_class.instructor_id)"></td>
+  		</tr>
+      <tr>
+        <td class="text-center" colspan="8"><button id="register" class="dash dash-btn" style="font-size:80%">Complete Registration</button></td>
+      </tr>
+  	</tbody>
+  	</table>
+  </div>
+
+  <div ng-show="ctrl.semester_class_list.length > 0">
+   <br>
+    <table class="table">
+    <thead>
+      <tr><th class="text-center" colspan="8">Current Schedule</th></tr>
+      <tr>
+        <th class="cl_header">Course #</th>
+        <th class="cl_header">Name</th>
+        <th class="cl_header">Section</th>
+        <th class="cl_header">Room</th>
+        <th class="cl_header">Days</th>
+        <th class="cl_header">Time</th>
+        <th class="cl_header">Instructor</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="_class in ctrl.semester_class_list">
+        <td ng-bind="_class.class.crn"></td>
+        <td ng-bind="ctrl.print_class_name(_class.class.class_id)"></td>
+        <td ng-bind="_class.class.sect"></td>
+        <td ng-bind="ctrl.print_room(_class.class.classroom_id)"></td>
+        <td>{{ctrl.print_days(_class.class.mon, _class.class.tues, _class.class.wed, _class.class.thurs, _class.class.fri, _class.class.sat, _class.class.onl);}}</td>
+        <td>{{ctrl.parse_time(_class.class.begin_time, _class.class.end_time)}}</td>
+        <td ng-bind="ctrl.print_instructor(_class.class.instructor_id)"></td>
+        <td><button class="remove_class dash dash-btn" ng-click="ctrl.deleteRegisteredClass(_class.class.crn, 
+          _class.class.class_id.department_id.code + ' ' + _class.class.class_id.num)" style="font-size:80%">Withdraw</button></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+
+
+ <!--  <div ng-show="ctrl.semester_student_classes_taken_list.length > 0">
+    <h2>Current Schedule</h2>
+    <table class="table">
+    <thead>
+      <tr><td>Course #</td><td>Name</td><td>Section</td><td>Room</td><td>Days</td><td>Time</td><td>Instructor</td></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="_class in ctrl.semester_student_classes_taken_list">
+        <td ng-bind="_class.class_list_id.crn"></td>
+        <td ng-bind="_class.class_list_id.class_id.department_id.code + ' ' + _class.class_list_id.class_id.num"></td>
+        <td ng-bind="_class.class_list_id.sect"></td>
+        <td ng-bind="_class.class_list_id.classroom_id.building_id.name + ' ' + _class.class_list_id.classroom_id.num"></td>
+        <td>{{ctrl.print_days(_class.class_list_id.mon, _class.class_list_id.tues, _class.class_list_id.wed, _class.class_list_id.thurs, _class.class_list_id.fri, _class.class_list_id.sat, _class.class_list_id.onl);}}</td>
+        <td>{{ctrl.parse_time(_class.class_list_id.begin_time, _class.class_list_id.end_time)}}</td>
+        <td ng-bind="_class.class_list_id.instructor_id.first_name + ' ' + _class.class_list_id.instructor_id.last_name"></td>
+      </tr>
+    </tbody>
+    </table>
+  </div> -->
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+  
+ .title {
+
+   background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+    font-size: 200%;
+
+}
+
+
+tr {
+  
+  background-color: #f0f0f5;
+  color: black;
+  font-size: 120%;
+
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+  font-size: 120%;
+}
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}
+ */
+
+</style>
+
+
+</head>
+<body>
+<div style="width: 80%;margin:10px auto;">
+	<p class= "title">Department Listings</p>
+	<table class="table">
+		<thead>
+			<tr><th>Code</th>
+			<th>Name</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="department in ctrl.departments">
+			<!-- <td ng-bind="student.first_name + ' ' + student.last_name"></td> -->
+			<td><a href="#/department/{{department.id}}">{{department.code}}</a></td>
+			<td ng-bind="department.name"></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

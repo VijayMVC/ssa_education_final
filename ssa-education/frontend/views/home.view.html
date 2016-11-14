@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!--=========== BEGIN COURSE BANNER SECTION ================-->
+
+    <section id="courseArchive">
+      <div class="container">
+      <div class ="row" >
+      <div class="col-xs-12 col-sm-6 col-lg-8">
+
+   
+
+
+                        <div class="w3-content w3-section" style="max-width:  1000px">
+                        
+                        <img class="mySlides" src="img/gallery/l8.jpg" alt="img" width="700"  height= "500">
+                        <img class="mySlides" src="img/gallery/l11.jpg" alt="img" width="700"  height= "500">
+                        <img class="mySlides"src="img/IMG_9985.jpg" alt="img" width="700"  height= "500">
+                        <img class="mySlides" src="img/IMG_9931.jpg" alt="img" width="700"  height= "500">
+                        <img class="mySlides" src="img/IMG_9962.jpg" alt="img" width="700"  height= "500">
+                          
+      </div>
+      </div>
+
+
+           <div class="col-xs-6 col-lg-4">
+          
+            <div class="courseArchive_sidebar">
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Popular News <span class="fa fa-angle-double-right"></span></h2>
+                <ul class="news_tab">
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="">Orange Demos </a>
+                       <span class="feed_date">11.8.16</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href=""> Orange Opens Its Doors in 1 Week</a>
+                       <span class="feed_date">11.1.16</span>                
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href=""> Orange Opens Its Doors in 2 Weeks</a>
+                       <span class="feed_date">10.24.16</span>                
+                      </div>
+                    </div>
+                  </li>                  
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Know More <span class="fa fa-angle-double-right"></span></h2>
+                <ul>
+                  <li><a href="">About Us</a></li>
+                  <li><a href="">Why study here ?</a></li>
+                  <li><a href="">Certfication programs</a></li>
+                  <li><a href="">Our Instructors</a></li>
+                  <li><a href="">What our students say</a></li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Tags <span class="fa fa-angle-double-right"></span></h2>
+                <ul class="tags_nav">
+                  <li><a href=""><i class="fa fa-tags"></i>Creative</a></li>
+                  <li><a href=""><i class="fa fa-tags"></i>News</a></li>
+                  <li><a href=""><i class="fa fa-tags"></i>Technology</a></li>
+                  <li><a href=""><i class="fa fa-tags"></i>Art</a></li>
+                  <li><a href=""><i class="fa fa-tags"></i>Audio</a></li>
+                  <li><a href=""><i class="fa fa-tags"></i>video</a></li>
+                </ul>
+              </div>
+             
+          <!-- start course archive sidebar -->
+      
+      </div>
+
+              <br><br><br><br><br><br><br><br><br><br><br>
+        <br><br>
+<br>
+    </section>
+ <!-- =========== END COURSE BANNER SECTION ================-->
+
+ <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    //if(x[myIndex-1] != undefined){x[myIndex-1].style.display = "block";}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 5000); // Change image every 2 seconds
+}
+</script>
+
+</body>
+</html>
+    </body>
+    </html>
+   
+
+
+

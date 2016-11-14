@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+<link href="style2.css" rel="stylesheet">
+-->
+<style>
+body {
+
+  background-image: url("/img/tranbackground.jpg");
+}
+</style>  
+<script>
+  $(window).scrollTop(0);
+</script>
+
+</head>
+<body>
+
+<div style="width:100%;margin:10px auto;">
+<br/>
+  <p class = "title">Academic Portal</p>
+  <!-- <p>This is the student academic portal for student.id {{ctrl.id}}</p> -->
+
+  <br><br>
+  <div ng-show="ctrl.showSchedule();">
+  	<table class="table">
+  	<thead>
+      <tr>
+        <th colspan="7" class="text-center">Registered Classes for Spring 2017</th>
+      </tr>
+  		<tr>
+        <th class="cl_header">Course #</th>
+        <th class="cl_header">Name</th>
+        <th class="cl_header">Section</th>
+        <th class="cl_header">Room</th>
+        <th class="cl_header">Days</th>
+        <th class="cl_header">Time</th>
+        <th class="cl_header">Instructor</th>
+      </tr>
+  	</thead>
+  	<tbody>
+  		<tr ng-repeat="_class in ctrl.schedule">
+  		  <td ng-bind="_class.crn"></td>
+        <td ng-bind="ctrl.print_class_name(_class.class_id)"></td>
+        <td ng-bind="_class.sect"></td>
+        <td ng-bind="ctrl.print_room(_class.classroom_id)"></td>
+        <td>{{ctrl.print_days(_class.mon, _class.tues, _class.wed, _class.thurs, _class.fri, _class.sat, _class.onl);}}</td>
+        <td>{{ctrl.parse_time(_class.begin_time, _class.end_time)}}</td>
+        <td ng-bind="ctrl.print_instructor(_class.instructor_id)"></td>
+  		</tr>
+  	</tbody>
+  	</table>
+  </div>
+
+<!--
+  <a class="ft_link" href="#/student">View Profile</a>&nbsp; &nbsp;
+  <a class="ft_link" href="#/student_transcript">View Transcript</a> &nbsp; &nbsp;
+  <a class="ft_link" href="#/student_audit">Audit</a> &nbsp; &nbsp;
+  <a class="ft_link" href="#/student_register">Register</a>
+-->
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+</body>
+</html>

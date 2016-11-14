@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  
+</head>
+<body>
+<div class="container" style="width:100%;margin:10px auto;">
+<br/>
+<p class = "title">Major Details</p>
+	<div class="form-group row">
+		<label for="major-name" class="col-xs-2 col-form-label">Name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.major.name" id="major-name" readonly="readonly">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="major-credits" class="col-xs-2 col-form-label">Credits</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.major.req_credits" id="major-credits" readonly="readonly">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="major-description" class="col-xs-2 col-form-label">Description</label>
+		 <div class="col-xs-10">
+		 	<textarea class="form-control" rows="10" cols="50" ng-model="ctrl.major.description" id="major-description" readonly="readonly">
+		 	</textarea>
+		</div>
+  	</div>
+</div>
+</body>
+</html>

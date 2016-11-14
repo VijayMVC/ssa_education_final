@@ -1,0 +1,24 @@
+<div style="width:50%;margin:10px auto;">
+<h1>School Year Details</h1>
+<p>This is the school year details page for school_year.id {{ctrl.id}}</p>
+	<div class="form-group row">
+		<label for="school_year-id" class="col-xs-2 col-form-label">ID</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" disabled="disabled" type="text" ng-model="ctrl.school_year.id" id="school_year-id">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="school_year-semester" class="col-xs-2 col-form-label">Semester</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.school_year.semester" id="school_year-semester">
+		</div>
+  	</div>
+
+	<button type="button" class="btn btn-success" ng-click="ctrl.addSchoolYear(ctrl.school_year.id,ctrl.school_year.semester)">Insert</button>
+	&nbsp;
+	<button type="button" class="btn btn-warning" ng-click="ctrl.updateSchoolYear(ctrl.school_year.id,ctrl.school_year.semester)">Update</button>
+	&nbsp;
+	<button type="button" class="btn btn-danger" ng-click="ctrl.deleteSchoolYear(ctrl.school_year.id)">Delete</button>
+	<button type="button" class="btn btn-default" ng-click="ctrl.clear(ctrl.school_year)">Clear</button>
+	&nbsp;
+</div>

@@ -1,0 +1,41 @@
+<div style="width:50%;margin:10px auto;">
+<h1>Student Detail</h1>
+<p>This is the student detail page for student.id {{ctrl.id}}</p>
+	<div class="form-group row">
+		<label for="student-id" class="col-xs-2 col-form-label">ID</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" disabled="disabled" type="text" ng-model="ctrl.student.id" id="student-id">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="student-firstname" class="col-xs-2 col-form-label">First name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.student.first_name" id="student-firstname">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="student-lastname" class="col-xs-2 col-form-label">Last name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.student.last_name" id="student-lastname">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="student-sat" class="col-xs-2 col-form-label">SAT</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.student.sat" id="student-sat">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="student-gpa" class="col-xs-2 col-form-label">GPA</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.student.gpa" id="student-gpa">
+		</div>
+  	</div>
+	<button type="button" class="btn btn-success" ng-click="ctrl.addStudent(ctrl.student.id,ctrl.student.first_name,ctrl.student.last_name,ctrl.student.sat,ctrl.student.gpa, null)">Insert</button>
+	&nbsp;
+	<button type="button" class="btn btn-warning" ng-click="ctrl.updateStudent(ctrl.student.id,ctrl.student.first_name,ctrl.student.last_name,ctrl.student.sat,ctrl.student.gpa, null)">Update</button>
+	&nbsp;
+	<button type="button" class="btn btn-danger" ng-click="ctrl.deleteStudent(ctrl.student.id)">Delete</button>
+	<button type="button" class="btn btn-default" ng-click="ctrl.clear(ctrl.student)">Clear</button>
+	&nbsp;
+</div>

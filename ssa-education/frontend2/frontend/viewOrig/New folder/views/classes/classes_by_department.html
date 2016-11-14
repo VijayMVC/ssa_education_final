@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+  
+ .title {
+
+   background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+    font-size: 200%;
+
+}
+
+
+tr {
+  
+  background-color: #f0f0f5;
+  color: black;
+  font-size: 120%;
+
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+  font-size: 120%;
+}
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}
+ */
+
+</style>
+
+
+</head>
+<body>
+<div style="width: 100%;margin:10px auto;">
+	<p class= "title">Class Listing</h1>
+	<table class="table table-striped ">
+		<thead>
+			<tr><th>Class</th><th>Name</th><th>Credits</th><th>Prerequisites</th></tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="_class in ctrl.classes_by_department">
+			<td><a ng-href="#/class/{{_class.id}}">{{_class.department_id.code + " " + _class.num}}</a></td>
+			<td ng-bind="_class.name"></td>
+			<td ng-bind="_class.credits"></td>
+			<td><a href="#/_class/prereqs/{{class.id}}">Prerequisites</a></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

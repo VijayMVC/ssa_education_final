@@ -1,0 +1,14 @@
+<div style="width:50%;margin:10px auto;">
+	<h1>Department Listing</h1>
+	<table class="table">
+		<thead>
+			<tr><td>Code</td><td>Name</td></tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="department in ctrl.departments">
+			<td><a ng-href="#/class_catalog/classes_by_department/{{department.id}}">{{department.code}}</a></td>
+			<td ng-bind="department.name"></td>
+		</tr>
+		</tbody>
+	</table>
+</div>

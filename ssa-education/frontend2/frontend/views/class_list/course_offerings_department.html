@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+
+body {
+
+  background-image: url("/img/binary.jpg");
+}
+  
+ .title {
+
+   background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+    font-size: 200%;
+
+}
+
+
+tr {
+  
+  background-color: #f0f0f5;
+  color: black;
+  font-size: 120%;
+
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+  font-size: 120%;
+}
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}
+ */
+
+</style>
+
+
+</head>
+<body>
+<div style="width: 100%;margin:10px auto;">
+  <br>
+	<p class="title">Department Listings</h1>
+	<table class="table table-striped" >
+	  <colgroup>
+    <col style="width:   45%" />
+    <col style="width:  30%" />
+    <col style="width:  25%" />
+  </colgroup>
+		<thead>
+			<tr>
+			<th>Code</th>
+			<th>Name</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="department in ctrl.departments">
+			<td><a ng-href="#/course_offerings/department/{{department.id}}">{{department.code}}</a></td>
+			<td ng-bind="department.name"></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

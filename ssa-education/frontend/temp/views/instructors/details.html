@@ -1,0 +1,48 @@
+<div style="width:50%;margin:10px auto;">
+<h1>Instructor Details</h1>
+<p>This is the instructor details page for instructor.id {{ctrl.id}}</p>
+	<div class="form-group row">
+		<label for="instructor-id" class="col-xs-2 col-form-label">ID</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" disabled="disabled" type="text" ng-model="ctrl.instructor.id" id="instructor-id">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="instructor-first_name" class="col-xs-2 col-form-label">First Name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.instructor.first_name" id="instructor-first_name">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="instructor-last_name" class="col-xs-2 col-form-label">Last Name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.instructor.last_name" id="instructor-last_name">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="instructor-year_hired" class="col-xs-2 col-form-label">Year Hired</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.instructor.year_hired" id="instructor-year_hired">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="instructor-is_tenured" class="col-xs-2 col-form-label">Tenured</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.instructor.is_tenured" id="instructor-is_tenured">
+		</div>
+  	</div>
+  	<div class="form-group row">
+  		<label for="instructor-department_id" class="col-xs-2 col-form-label">Department</label>
+  		<div class="col-xs-10">
+  			<select name="department_id" ng-model="ctrl.departments.selected" ng-options="obj.id as obj.name for obj in ctrl.departments"></select>
+  		</div>
+  	</div>
+
+	<button type="button" class="btn btn-success" ng-click="ctrl.addInstructor(ctrl.instructor.id,ctrl.instructor.first_name,ctrl.instructor.last_name,ctrl.instructor.year_hired,ctrl.instructor.is_tenured,ctrl.departments)">Insert</button>
+	&nbsp;
+	<button type="button" class="btn btn-warning" ng-click="ctrl.updateInstructor(ctrl.instructor.id,ctrl.instructor.first_name,ctrl.instructor.last_name,ctrl.instructor.year_hired,ctrl.instructor.is_tenured,ctrl.departments)">Update</button>
+	&nbsp;
+	<button type="button" class="btn btn-danger" ng-click="ctrl.deleteInstructor(ctrl.instructor.id)">Delete</button>
+	<button type="button" class="btn btn-default" ng-click="ctrl.clear(ctrl.instructor)">Clear</button>
+	&nbsp;
+</div>

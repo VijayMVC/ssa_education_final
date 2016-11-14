@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+
+body {
+
+  background-image: url("/img/tranbackground.jpg");
+}
+  
+</style>
+
+</head>
+<body>
+
+<div style="width:100%;margin:10px auto;">
+<br>
+ <p class="title">Graduation Audit</p>
+  <!-- <h1>Graduation Audit</h1> -->
+  <!-- <p>This is the audit for the student with student.id {{ctrl.id}}</p> -->
+
+  <div ng-show="ctrl.major_courses_completed.length > 0">
+    <table class="table table-striped" >
+    <thead>
+      <tr>
+        <th class="text-center" colspan="5">Major Courses Completed</th>
+      </tr>
+      <tr>
+        <th class="cl_header">Course</th>
+        <th class="cl_header">Name</th>
+        <th class="cl_header">Completed</th>
+        <th class="cl_header">Course #</th>
+        <th class="cl_header text-center">Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="mcc in ctrl.major_courses_completed">
+        <td>{{mcc.class_list_id.class_id.department_id.code + ' ' + mcc.class_list_id.class_id.num}}</td>
+        <td ng-bind="mcc.class_list_id.class_id.name"></td>
+        <td ng-bind="mcc.class_list_id.semester.semester"></td>
+        <td ng-bind="mcc.class_list_id.crn"></td>
+        <td ng-bind="mcc.grade" class="text-center"></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <div ng-show="ctrl.elective_courses_completed.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center" colspan="5">Elective Courses Completed</th>
+        </tr>
+        <tr>
+          <th class="cl_header">Course</th>
+          <th class="cl_header">Name</th>
+          <th class="cl_header">Completed</th>
+          <th class="cl_header">Course #</th>
+          <th class="cl_header text-center">Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="ecc in ctrl.elective_courses_completed">
+          <td>{{ecc.class_list_id.class_id.department_id.code + ' ' + ecc.class_list_id.class_id.num}}</td>
+          <td ng-bind="ecc.class_list_id.class_id.name"></td>
+          <td ng-bind="ecc.class_list_id.semester.semester"></td>
+          <td ng-bind="ecc.class_list_id.crn"></td>
+          <td ng-bind="ecc.grade" class="text-center"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div ng-show="ctrl.major_courses_in_progress.length > 0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-center" colspan="3">Major Courses in Progress</th>
+        </tr>
+        <tr>
+          <th class="cl_header col-xs-2">Course</th>
+          <th class="cl_header col-xs-8">Name</th>
+          <th class="cl_header col-xs-2">Semester</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="mcip in ctrl.major_courses_in_progress">
+          <td>{{mcip.class_list_id.class_id.department_id.code + ' ' + mcip.class_list_id.class_id.num}}</td>
+          <td ng-bind="mcip.class_list_id.class_id.name"></td>
+          <td ng-bind="mcip.class_list_id.semester.semester"></td>  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div ng-show="ctrl.major_courses_remaining.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center" colspan="2">Major Courses Remaining</th>
+        </tr>
+        <tr>
+        <th class="cl_header col-xs-3">Course</th>
+        <th class="cl_header col-xs-9">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="mcr in ctrl.major_courses_remaining">
+          <td>{{mcr.department_id.code + ' ' + mcr.num}}</td>
+          <td ng-bind="mcr.name"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</body>
+<html>

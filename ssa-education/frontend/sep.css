@@ -1,0 +1,85 @@
+
+.title {
+
+   background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+    font-size: 300%;
+
+}
+
+tr {
+  
+  background-color: #f0f0f5;
+  color: black;
+  font-size: 175%;
+
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+  font-size: 120%;
+}
+
+a {
+	text-decoration: underline;
+}
+
+li {
+  font-size:150%;
+}
+
+input[type=text] {
+	font-size:150%;
+}
+
+label {
+	font-size:150%;
+}
+
+#major-description {
+	font-size:150%;
+}
+
+#class-description {
+	font-size:150%;
+}
+
+.cl_header {
+	font-size:80%;
+}
+
+.ft_link {
+	font-size:150%;
+}
+
+.gpa {
+	font-weight: bold;
+}
+
+.curr_gpa {
+	color: #009900;
+	font-weight: bold;
+}
+
+.search_label {
+	font-size:90%;
+}
+
+#crn {
+	font-size:80%;
+}
+
+select {
+	font-size:80%;
+}
+
+.search_button {
+	font-size:75%;	
+}
+
+.search_result {
+	font-size:100%;
+}

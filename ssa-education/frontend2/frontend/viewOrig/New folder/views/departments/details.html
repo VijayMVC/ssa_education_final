@@ -1,0 +1,30 @@
+<div style="width:80%;margin:10px auto;">
+<h1>Department Details</h1>
+<p>This is the class details page for department.id {{ctrl.id}}</p>
+	<div class="form-group row">
+		<label for="department-id" class="col-xs-2 col-form-label">ID</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" disabled="disabled" type="text" ng-model="ctrl.department.id" id="department-id">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="department-code" class="col-xs-2 col-form-label">Code</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.department.code" id="department-code">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="department-name" class="col-xs-2 col-form-label">Name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.department.name" id="department-name">
+		</div>
+  	</div>
+  	
+	<button type="button" class="btn btn-success" ng-click="ctrl.addDepartment(ctrl.department.id, ctrl.department.code, ctrl.department.name)">Insert</button>
+	&nbsp;
+	<button type="button" class="btn btn-warning" ng-click="ctrl.updateDepartment(ctrl.department.id, ctrl.department.code, ctrl.department.name)">Update</button>
+	&nbsp;
+	<button type="button" class="btn btn-danger" ng-click="ctrl.deleteDepartment(ctrl.department.id)">Delete</button>
+	<button type="button" class="btn btn-default" ng-click="ctrl.clear(ctrl.department)">Clear</button>
+	&nbsp;
+</div>

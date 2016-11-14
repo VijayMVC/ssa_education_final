@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+  
+ .title {
+
+   background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+    font-size: 200%;
+
+}
+
+tr {
+    background-color: #f0f0f5;
+  color: black;
+  font-size: 120%;
+
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+  font-size: 120%;
+}
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}
+ */
+
+
+ a {
+    color: white;
+}
+
+a:hover {
+    color: #FF8C00;
+}
+
+</style>
+
+
+</head>
+<body>
+<div style="width:100%;margin:10px auto;">
+<h1 class = "title">Class Listing Details By Department</h1>
+<!-- <p>This is the class listing details page for department.id {{ctrl.id}}</p> -->
+	<table class="table table-striped" ng-repeat="_class in ctrl.department_class_listing">
+		<thead>
+			<tr>
+			<th><a ng-href="#/class/{{_class.class_id}}">{{_class.name}}</a></th>
+			</tr>
+			<tr>
+				<th class="col-xs-2">Course #</th>
+				<th class="col-xs-2">Section</th>
+				<th class="col-xs-2">Classroom</th>
+				<th class="col-xs-2">Days</th>
+				<th class="col-xs-2">Time</th>
+				<th class="col-xs-2">Instructor</th></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="section in _class.sections">
+				<td class="col-xs-2" ng-bind="section.crn"></td>
+				<td class="col-xs-2" ng-bind="section.sect"></td>
+				<td class="col-xs-2">{{section.classroom_id.building_id.name + ' ' + section.classroom_id.num}}</td>
+				<td class="col-xs-2">{{ctrl.print_days(section.mon, section.tues, section.wed, section.thurs, section.fri, section.sat, section.onl);}}</td>
+				<td class="col-xs-2">{{ctrl.parse_time(section.begin_time, section.end_time);}}</td>
+				<td class="col-xs-2">{{section.instructor_id.first_name + ' ' + section.instructor_id.last_name}}</td>
+			</tr>
+		</tbody>				
+	</table>	
+
+</div>
+</body>
+</html>

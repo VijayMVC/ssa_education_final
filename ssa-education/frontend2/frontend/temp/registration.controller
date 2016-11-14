@@ -1,0 +1,15 @@
+appMod
+
+	.controller("RegisterCtrl", ['$http', '$routeParams', '$location', function($http, $routeParams, $location) {
+		var self = this;
+		//console.log($routeParams);
+
+		
+		self.submit = function() {
+			console.log("Here");
+		}
+
+	}]) // end controller
+	
+
+;// end all 

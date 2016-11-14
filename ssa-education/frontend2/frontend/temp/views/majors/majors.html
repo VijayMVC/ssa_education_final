@@ -1,0 +1,16 @@
+<div style="width:50%;margin:10px auto;">
+	<h1>Major Listing</h1>
+	<table class="table">
+		<thead>
+			<tr><td>Name</td><td>Credits</td><td>Classes Required</td></tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="major in ctrl.majors">
+			<!-- <td ng-bind="student.first_name + ' ' + student.last_name"></td> -->
+			<td><a href="#/major/{{major.id}}">{{major.name}}</a></td>
+			<td ng-bind="major.req_credits"></td>
+			<td><a href="#/major/classes_for_major/{{major.id}}">Classes</a></td>
+		</tr>
+		</tbody>
+	</table>
+</div>

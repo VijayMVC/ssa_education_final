@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+  
+h4 {
+
+    background-color: #FF8C00;
+    text-align:center;
+    color: #fff;
+}
+
+
+   #link_bar a { padding:15px; font-weight:bold; float:left; }
+    #link_bar a:link { color:#d0d0d0; background-color:#0000a0; }
+    #link_bar a:visited { color:#c0c0c0; background-color:#0000a0; }
+    #link_bar a:hover { color:#ffffff; background-color:#000060; }
+    #link_bar a:active { color:#f0f0f0; background-color:#00ff00; }
+
+</style>
+
+
+
+</head>
+<body>
+
+
+
+
+<div class="container" style="width:50%;margin:10px auto;">
+  <h4>  Register for your classes here</h4>
+  <p>This is the place for student {{ctrl.id}} to register</p>
+
+  <div>
+  <form name="login_form" ng-submit="ctrl.submit()">
+  	<div class="form-group">
+      <div class="col-xs-1">
+        <input id="by_crn" name="search_by" type="radio" selected="true" checked />
+      </div>
+      <div class="col-xs-3">
+  		  <label>Course #</label>
+      </div>
+      <div class="col-xs-8">
+  		  <input type="text" class="col-xs-10" id="crn" name="crn" ng-model="ctrl.crn" ng-disabled="ctrl.search_class" />
+      </div>
+  	</div>
+    <div>
+  	 <div class="col-xs-1">&nbsp;</div><div class="col-xs-11">OR</div>
+    </div>
+  	<div class="form-group">
+      <div class="col-xs-1">
+        <input id="by_class" name="search_by" type="radio" />
+      </div>
+      <div class="col-xs-3">
+  		  <label>By Class</label>
+      </div>
+      <div class="col-xs-8">
+  		  <select name="department" id="department" ng-model="ctrl.selected_department" ng-options="obj.id as obj.code for obj in ctrl.departments" ng-disabled="!ctrl.search_class" style="width:100px">
+  		  </select>
+
+		    <select name="nums" id="nums" ng-model="ctrl.selected_num" ng-options="obj.id as obj.num for obj in ctrl.nums" ng-disabled="!ctrl.search_class" style="width:50px"></select>
+
+		    <select name="sect" id="sect" ng-model="ctrl.selected_sect" ng-options="obj.id as obj.sect for obj in ctrl.sections" ng-disabled="!ctrl.search_class" style="width:50px">
+		    </select>
+      </div>
+  	</div>
+    <div class="form-group col-xs-12">
+     <br>
+  	 <button type="submit" class="dash dash-btn">Search for Class</button>
+     <br><br>
+     <h4>Current Schedule</h4>
+
+    </div>
+  </form>
+  </div>
+
+
+
+  <div ng-show="ctrl.show_class">
+  <table class="table">
+  	<thead>
+  		<tr><td>Course #</td><td>Name</td><td>Section</td><td>Room</td><td>Days</td><td>Time</td><td>Instructor</td></tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  	     <td ng-bind="ctrl._class.crn"></td>
+  			 <td ng-bind="ctrl._class.class_id.department_id.code + ' ' + ctrl._class.class_id.num"></td>
+			   <td ng-bind="ctrl._class.sect"></td>
+			   <td ng-bind="ctrl._class.classroom_id.building_id.name + ' ' + ctrl._class.classroom_id.num"></td>
+			   <td>{{ctrl.print_days(ctrl._class.mon, ctrl._class.tues, ctrl._class.wed, ctrl._class.thurs, ctrl._class.fri, ctrl._class.sat,      
+            ctrl._class.onl);}}</td>
+			   <td>{{ctrl.parse_time(ctrl._class.begin_time, ctrl._class.end_time)}}</td>
+			   <td ng-bind="ctrl._class.instructor_id.first_name + ' ' + ctrl._class.instructor_id.last_name"></td>
+			   <td><button id="enroll_button" class="dash2 dash_btn2">Enroll</button></td>
+  		</tr>
+  	</tbody>
+  </table> 
+  </div>
+
+  <div ng-show="ctrl.show_crn_not_found">
+    <p>No course for Course # can be found.</p>
+  </div>
+
+  <div ng-show="ctrl.show_repeat">
+    <p>Course not added - you have already signed up for a section of this class.</p>
+  </div>
+
+  <div ng-show="ctrl.added_classes.length > 0">
+  	<h4>Added Classes</h4>
+  	<table class="table">
+  	<thead>
+  		<tr><td>&nbsp;</td><td>Course #</td><td>Name</td><td>Section</td><td>Room</td><td>Days</td><td>Time</td><td>Instructor</td></tr>
+  	</thead>
+  	<tbody>
+  		<tr ng-repeat="_class in ctrl.added_classes">
+  			<td><button class="dash2 dash2-btn">Remove</button></td>
+  			<td ng-bind="_class.crn"></td>
+  			<td ng-bind="_class.class_id.department_id.code + ' ' + _class.class_id.num"></td>
+			   <td ng-bind="_class.sect"></td>
+			   <td ng-bind="_class.classroom_id.building_id.name + ' ' + _class.classroom_id.num"></td>
+			   <td>{{ctrl.print_days(_class.mon, _class.tues, _class.wed, _class.thurs, _class.fri, _class.sat, _class.onl);}}</td>
+			   <td>{{ctrl.parse_time(_class.begin_time, _class.end_time)}}</td>
+			   <td ng-bind="_class.instructor_id.first_name + ' ' + _class.instructor_id.last_name"></td>
+  		</tr>
+  	</tbody>
+  	</table>
+  	<button id="register" class=" dash dash-btn">Complete Registration</button>
+  </div>
+
+
+  <div ng-show="ctrl.semester_class_list.length > 0">
+    <!-- <h2>Current Schedule</h2> -->
+    <table class="table">
+    <thead>
+      <tr><td>Course #</td><td>Name</td><td>Section</td><td>Room</td><td>Days</td><td>Time</td><td>Instructor</td></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="_class in ctrl.semester_class_list">
+        <td ng-bind="_class.class.crn"></td>
+        <td ng-bind="_class.class.class_id.department_id.code + ' ' + _class.class.class_id.num"></td>
+        <td ng-bind="_class.class.sect"></td>
+        <td ng-bind="_class.class.classroom_id.building_id.name + ' ' + _class.class.classroom_id.num"></td>
+        <td>{{ctrl.print_days(_class.class.mon, _class.class.tues, _class.class.wed, _class.class.thurs, _class.class.fri, _class.class.sat, _class.class.onl);}}</td>
+        <td>{{ctrl.parse_time(_class.class.begin_time, _class.class.end_time)}}</td>
+        <td ng-bind="_class.class.instructor_id.first_name + ' ' + _class.class.instructor_id.last_name"></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+
+
+ <!--  <div ng-show="ctrl.semester_student_classes_taken_list.length > 0">
+    <h2>Current Schedule</h2>
+    <table class="table">
+    <thead>
+      <tr><td>Course #</td><td>Name</td><td>Section</td><td>Room</td><td>Days</td><td>Time</td><td>Instructor</td></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="_class in ctrl.semester_student_classes_taken_list">
+        <td ng-bind="_class.class_list_id.crn"></td>
+        <td ng-bind="_class.class_list_id.class_id.department_id.code + ' ' + _class.class_list_id.class_id.num"></td>
+        <td ng-bind="_class.class_list_id.sect"></td>
+        <td ng-bind="_class.class_list_id.classroom_id.building_id.name + ' ' + _class.class_list_id.classroom_id.num"></td>
+        <td>{{ctrl.print_days(_class.class_list_id.mon, _class.class_list_id.tues, _class.class_list_id.wed, _class.class_list_id.thurs, _class.class_list_id.fri, _class.class_list_id.sat, _class.class_list_id.onl);}}</td>
+        <td>{{ctrl.parse_time(_class.class_list_id.begin_time, _class.class_list_id.end_time)}}</td>
+        <td ng-bind="_class.class_list_id.instructor_id.first_name + ' ' + _class.class_list_id.instructor_id.last_name"></td>
+      </tr>
+    </tbody>
+    </table>
+  </div> -->
+</div>
+
+</body>
+</html>

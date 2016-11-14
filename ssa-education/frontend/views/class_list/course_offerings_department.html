@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style>
+body {
+
+  background-image: url("/img/binary.jpg");
+}
+</style>
+</head>
+<body>
+<div style="width: 100%;margin:10px auto;">
+  <br>
+	<p class="title">Department Listings</h1>
+	<table class="table table-striped" >
+	  <colgroup>
+    <col style="width:   50%" />
+    <col style="width:  50%" />
+  </colgroup>
+		<thead>
+			<tr>
+			<th>Code</th>
+			<th>Name</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="department in ctrl.departments">
+			<td><a ng-href="#/course_offerings/department/{{department.id}}">{{department.code}}</a></td>
+			<td ng-bind="department.name"></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

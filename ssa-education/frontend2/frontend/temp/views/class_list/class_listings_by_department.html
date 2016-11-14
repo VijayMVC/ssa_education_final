@@ -1,0 +1,55 @@
+<div style="width:50%;margin:10px auto;">
+<h1>Class Listing Details By Department</h1>
+<p>This is the class listing details page for department.id {{ctrl.id}}</p>
+	<table class="table" ng-repeat="_class in ctrl.department_class_listing">
+		<thead>
+			<tr><td ng-bind="_class.name"></td></tr>
+			<tr>
+				<td class="col-xs-2">Course #</td>
+				<td class="col-xs-2">Section</td>
+				<td class="col-xs-2">Classroom</td>
+				<td class="col-xs-2">Days</td>
+				<td class="col-xs-2">Time</td>
+				<td class="col-xs-2">Instructor</td></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="section in _class.sections">
+				<td class="col-xs-2" ng-bind="section.crn"></td>
+				<td class="col-xs-2" ng-bind="section.sect"></td>
+				<td class="col-xs-2">{{section.classroom_id.building_id.name + ' ' + section.classroom_id.num}}</td>
+				<td class="col-xs-2">{{ctrl.print_days(section.mon, section.tues, section.wed, section.thurs, section.fri, section.sat, section.onl);}}</td>
+				<td class="col-xs-2">{{ctrl.parse_time(section.begin_time, section.end_time);}}</td>
+				<td class="col-xs-2">{{section.instructor_id.first_name + ' ' + section.instructor_id.last_name}}</td>
+			</tr>
+		</tbody>				
+	</table>	
+
+<!--
+		<thead>
+			<tr><td ng-bind="semester.semester"></td><td>CRN</td><td>Course</td><td>Name</td><td>Section</td><td>Credits</td><td>Grade</td></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c_r in semester.courses">
+				<td>&nbsp;</td>
+				<td ng-bind="c_r.crn"></td>
+				<td ng-bind="c_r.course"></td>
+				<td ng-bind="c_r.name"></td>
+				<td ng-bind="c_r.section"></td>
+				<td ng-bind="c_r.credits"></td>
+				<td ng-bind="c_r.grade"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>Semester GPA Points</td><td ng-bind="semester.sem_points"></td>	
+			</tr>
+			<tr>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>Semester Credits</td><td ng-bind="semester.sem_credits"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>GPA</td><td ng-bind="semester.sem_gpa"></td>
+			</tr>
+		</tbody>
+-->	
+</div>

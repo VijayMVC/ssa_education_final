@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<div style="width:100%;margin:10px auto;">
+
+<h1 class = "title">Classes for Major</h1>
+	<table class="table table-striped" 
+
+	 <colgroup>
+    <col style="width:    25%" />
+    <col style="width:  60%" />
+    <col style="width:  15%" />
+  </colgroup>
+		<thead>
+			<tr><th>Class</th><th>Name</th><th class="text-center">Credits</th></tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="class in ctrl.class_major">
+			<td><a ng-href="{{ctrl.generateClassLink(class.id)}}">{{class.department_id.code + ' ' + class.num}}</a></td>
+			<!-- <td ng-bind="class.department_id.code"></td>
+			<td ng-bind="class.num"></td> -->
+			<td ng-bind="class.name"></td>
+			<td class="text-center" ng-bind="class.credits"></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

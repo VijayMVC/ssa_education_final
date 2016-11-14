@@ -1,0 +1,72 @@
+<div style="width:50%;margin:10px auto;">
+  <h1>Graduation Audit</h1>
+  <p>This is the audit for the student with student.id {{ctrl.id}}</p>
+
+  <div ng-show="ctrl.major_courses_completed.length > 0">
+    <h2>Major Courses Completed</h2>
+  	<table class="table">
+  	<thead>
+  		<tr><td>Course</td><td>Name</td><td>Completed</td><td>Course #</td><td>Grade</td></tr>
+  	</thead>
+  	<tbody>
+  		<tr ng-repeat="mcc in ctrl.major_courses_completed">
+  			<td>{{mcc.class_list_id.class_id.department_id.code + ' ' + mcc.class_list_id.class_id.num}}</td>
+        <td ng-bind="mcc.class_list_id.class_id.name"></td>
+        <td ng-bind="mcc.class_list_id.semester.semester"></td>
+        <td ng-bind="mcc.class_list_id.crn"></td>
+        <td ng-bind="mcc.grade"></td>
+  		</tr>
+  	</tbody>
+  	</table>
+  </div>
+
+  <div ng-show="ctrl.elective_courses_completed.length > 0">
+    <h2>Elective Courses Completed</h1>
+    <table class="table">
+      <thead>
+        <tr><td>Course</td><td>Name</td><td>Completed</td><td>Course #</td><td>Grade</td></tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="ecc in ctrl.elective_courses_completed">
+          <td>{{ecc.class_list_id.class_id.department_id.code + ' ' + ecc.class_list_id.class_id.num}}</td>
+          <td ng-bind="ecc.class_list_id.class_id.name"></td>
+          <td ng-bind="ecc.class_list_id.semester.semester"></td>
+          <td ng-bind="ecc.class_list_id.crn"></td>
+          <td ng-bind="ecc.grade"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div ng-show="ctrl.major_courses_in_progress.length > 0">
+    <h2>Major Courses in Progress</h2>
+    <table class="table">
+      <thead>
+        <tr><td>Course</td><td>Name</td><td>Semester</td></tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="mcip in ctrl.major_courses_in_progress">
+          <td>{{mcip.class_list_id.class_id.department_id.code + ' ' + mcip.class_list_id.class_id.num}}</td>
+          <td ng-bind="mcip.class_list_id.class_id.name"></td>
+          <td ng-bind="mcip.class_list_id.semester.semester"></td>  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div ng-show="ctrl.major_courses_remaining.length > 0">
+    <h2>Major Courses Remaining</h2>
+    <table class="table">
+      <thead>
+        <tr><td>Course</td><td>Name</td></tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="mcr in ctrl.major_courses_remaining">
+          <td>{{mcr.department_id.code + ' ' + mcr.num}}</td>
+          <td ng-bind="mcr.name"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

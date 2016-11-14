@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+  
+ .title {
+
+    background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+}
+
+/*
+tr:nth-child(even) {
+  background-color: #FF8C00;
+  background-color: white;
+  color: blue;
+}
+*/
+
+tr {
+  
+  background-color: #f0f0f5;
+  color: black;
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+}
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}
+ */
+
+
+</style>
+
+
+
+
+</head>
+<body>
+
+<div class="container-fluid" style="width:80%;margin:10px auto;">
+
+	<!-- Fall 2015
+	Class1		Grade
+	Class2		Grade
+	Class3		Grade
+	Class4		Grade
+
+	Spring 2016
+	Class 1		Grade
+	Class 2		Grade
+	Class 3		Grade
+	Class 4		Grade -->
+	<br>
+    <h3 class = "title" > Unofficial Transcript</h3>
+    <br>
+	<table class="table" ng-repeat="semester in ctrl.transcript">
+		<thead>
+
+			<tr> <h1><th ng-bind="semester.semester"></th></h1></tr>
+			<tr>
+				<th class="col-xs-2">CRN</th>
+				<th class="col-xs-2">Course</th>
+				<th class="col-xs-5">Name</th>
+				<th class="col-xs-1 text-right">Section</th>
+				<th class="col-xs-1 text-right">Credits</th>
+				<th class="col-xs-1 text-center">Grade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c_r in semester.courses">
+				<td class="col-xs-2" ng-bind="c_r.crn"></td>
+				<td class="col-xs-2" ng-bind="c_r.course"></td>
+				<td class="col-xs-5" ng-bind="c_r.name"></td>
+				<td class="col-xs-1 text-right" ng-bind="c_r.section"></td>
+				<td class="col-xs-1 text-right" ng-bind="c_r.credits"></td>
+				<td class="col-xs-1 text-center" ng-bind="c_r.grade"></td>
+			</tr>
+					
+
+
+
+			<tr>
+				<td class="col-xs-2">&nbsp;</td>
+				<td class="col-xs-2">&nbsp;</td>
+				<td class="col-xs-5 text-right">Semester GPA Points</td>
+				<td class="col-xs-1 text-right" ng-bind="semester.sem_points"><b></b></td>
+				<td class="col-xs-1"> &nbsp;</td>
+				<td class="col-xs-1">&nbsp;</td>
+
+			</tr>			
+			<tr>
+				<td class="col-xs-2">&nbsp;</td>
+				<td class="col-xs-2">&nbsp;</td>
+				<td class="col-xs-5 text-right">Semester Credits</td>
+				<td class="col-xs-2 text-right"ng-bind="semester.sem_credits"></td>
+				<td class="col-xs-1"> &nbsp;</td>
+				<td class="col-xs-1">&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="col-xs-2">&nbsp;</td>
+				<td class="col-xs-2">&nbsp;</td>
+				<td class="col-xs-5 text-right">Semester GPA</td>
+				<td class="col-xs-2 text-right" ng-bind="semester.sem_gpa"></td>
+				<td class="col-xs-1"> &nbsp;</td>
+				<td class="col-xs-1">&nbsp;</td>
+			</tr>
+	
+		</tbody>
+	</table>
+	
+	<table class="table">
+		<!-- <p ng-bind="ctrl.calculate_cummulative_gpa();">{{2+10}}</p> -->
+		<tr>
+			<td class="col-xs-4">&nbsp;</td>
+			<td class="col-xs-5 text-right">Total GPA Points</td>
+			<td class="col-xs-2 text-right">{{ctrl.calculate_total_points();}}</td>
+		</tr>
+		<tr>
+			<td class="col-xs-4">&nbsp;</td>
+			<td class="col-xs-5 text-right">Total Credits</td>
+			<td class="col-xs-2 text-right">{{ctrl.calculate_total_credits();}}</td>
+		</tr>
+		<tr>
+			<td class="col-xs-4">&nbsp;</td>
+			<td class="col-xs-5 text-right">Cummulative GPA</td>
+			<td class="col-xs-2 text-right">{{ctrl.calculate_cummulative_gpa();}}</td>
+		</tr>
+	</table>
+	<!-- <table class="table" ng-repeat="c_r in ctrl.classes_taken">
+	<thead><tr><td></td></tr></thead>
+	<tr ng-repeat="semester in c_r.class_list_id"><td>
+	<table class="table"> 
+		<thead>
+			<tr><td>Semester</td><td>Course</td><td>Grade</td></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="class_record in ctrl.classes_taken">
+				<td ng-bind="class_record.class_list_id.semester.semester"></td>
+				<td ng-bind="class_record.class_list_id.class_id.department_id.code + ' ' + class_record.class_list_id.class_id.num"></td>
+				<td ng-bind="class_record.grade"></td>
+			</tr>
+		</tbody>
+	</table>
+	</td></tr>
+	</table> -->
+</div>
+
+</body>
+</html>

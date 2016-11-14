@@ -1,0 +1,40 @@
+<div style="width:50%;margin:10px auto;">
+<h1>Class Details</h1>
+<p>This is the class details page for class.id {{ctrl.id}}</p>
+  	<div class="form-group row">
+		<label for="class-class" class="col-xs-2 col-form-label">Class</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl._class._class" id="class-class" readonly="readonly">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="class-name" class="col-xs-2 col-form-label">Name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl._class.name" id="class-name" readonly="readonly">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="class-credits" class="col-xs-2 col-form-label">Credits</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl._class.credits" id="class-credits" readonly="readonly">
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="class-description" class="col-xs-2 col-form-label">Description</label>
+		 <div class="col-xs-10">
+		 	<textarea class="form-control" rows="10" cols="50" ng-model="ctrl._class.description" id="class-description" 
+		 	readonly="readonly"></textarea>
+		</div>
+  	</div>
+
+  	<div class="form-group-row">
+  		<label for="class-prereqs" class="col-xs-2 col-form-label">Prerequisites</label>
+  		<div class="col-xs-10">
+  			<table>
+  				<tr ng-repeat="prereq in ctrl.prereqs">
+  					<td ng-bind="prereq.department_id.code + ' ' + prereq.num"></td>
+  				</tr>
+  			</table>
+  		</div>
+  	</div>
+</div>

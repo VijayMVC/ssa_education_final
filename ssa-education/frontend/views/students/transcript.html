@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+
+body {
+
+	background-image: url("/img/tranbackground.jpg");
+}
+  
+</style>
+
+</head>
+<body >
+
+<div style="width: 100%;margin:10px auto;">
+
+	<!-- Fall 2015
+	Class1		Grade
+	Class2		Grade
+	Class3		Grade
+	Class4		Grade
+
+	Spring 2016
+	Class 1		Grade
+	Class 2		Grade
+	Class 3		Grade
+	Class 4		Grade -->
+
+    <p class = "title" > Unofficial Transcript</p>
+    <br/>
+	<div ng-repeat="semester in ctrl.transcript">
+	<table class="table table-striped">
+		<thead>
+
+			<tr> <th colspan="2" ng-bind="semester.semester"></th></tr>
+			<tr>
+				<th class="cl_header col-xs-2">Course #</th>
+				<th class="cl_header col-xs-2">Course</th>
+				<th class="cl_header col-xs-5">Name</th>
+				<th class="cl_header col-xs-1 text-center">Section</th>
+				<th class="cl_header col-xs-1 text-center">Credits</th>
+				<th class="cl_header col-xs-1 text-center">Grade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c_r in semester.courses">
+				<td class="col-xs-2" ng-bind="c_r.crn"></td>
+				<td class="col-xs-2" ng-bind="c_r.course"></td>
+				<td class="col-xs-5" ng-bind="c_r.name"></td>
+				<td class="col-xs-1 text-center" ng-bind="c_r.section"></td>
+				<td class="col-xs-1 text-center" ng-bind="c_r.credits"></td>
+				<td class="col-xs-1 text-center" ng-bind="ctrl.print_grade(c_r.grade)"></td>
+			</tr>
+		</tbody>			
+	</table>
+	
+	<table class="table table-striped">
+		<thead>
+			<tr><th class="text-center" colspan="3">Semester Totals</th></tr>
+			<tr>
+				<th class="col-xs-4 cl_header text-center">GPA Points</th>
+				<th class="col-xs-4 cl_header text-center">Credits Taken</th>
+				<th class="col-xs-4 cl_header text-center">GPA</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="col-xs-4 text-center" ng-bind="semester.sem_points"></td>
+				<td class="col-xs-4 text-center" ng-bind="semester.sem_credits"></td>
+				<td class="col-xs-4 text-center gpa" ng-bind="semester.sem_gpa"></td>	
+			</tr>
+		</tbody>	
+	</table>
+	</div>
+
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="col-xs-4 cl_header text-center">Total GPA Points</th>
+				<th class="col-xs-4 cl_header text-center">Total Credits Taken</th>
+				<th class="col-xs-4 cl_header text-center">Cumulative GPA</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="col-xs-4 text-center" ng-bind="ctrl.calculate_total_points()"></td>
+				<td class="col-xs-4 text-center" ng-bind="ctrl.calculate_total_credits()"></td>
+				<td class="col-xs-4 text-center curr_gpa" ng-bind="ctrl.calculate_cummulative_gpa()"></td>
+			</tr>
+		</tbody>
+	</table>
+<!--
+		<tr>
+			<td class="col-xs-4">&nbsp;</td>
+			<td class="col-xs-5 text-right">Total GPA Points</td>
+			<td class="col-xs-2 text-right">{{ctrl.calculate_total_points();}}</td>
+		</tr>
+		<tr>
+			<td class="col-xs-4">&nbsp;</td>
+			<td class="col-xs-5 text-right">Total Credits</td>
+			<td class="col-xs-2 text-right">{{ctrl.calculate_total_credits();}}</td>
+		</tr>
+		<tr>
+			<td class="col-xs-4">&nbsp;</td>
+			<td class="col-xs-5 text-right">Cummulative GPA</td>
+			<td class="col-xs-2 text-right">{{ctrl.calculate_cummulative_gpa();}}</td>
+		</tr>
+	
+	</table>
+-->
+</div>
+
+</body>
+</html>

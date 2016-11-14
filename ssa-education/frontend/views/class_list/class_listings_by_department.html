@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+body {
+
+  background-image: url("/img/binary.jpg");
+}
+
+a {
+    color: white;
+   
+}
+
+a:hover {
+    color: #fff;
+}
+
+</style>
+
+
+</head>
+<body>
+<div style="width:100%;margin:10px auto;">
+<h1 class = "title"><b>Class Listing Details</b></h1>
+<br/>
+
+	<table class="table table-striped" ng-repeat="_class in ctrl.department_class_listing">
+		<thead>
+			<tr>
+				<th colspan="6"><a ng-href="#/class/{{_class.class_id}}">{{_class.name}}</a></th>
+			</tr>
+			<tr>
+				<th class="cl_header col-sm-2">Course #</th>
+				<th class="cl_header col-sm-1">Section</th>
+				<th class="cl_header col-sm-1">Room</th>
+				<th class="cl_header col-sm-2">Days</th>
+				<th class="cl_header col-sm-2">Time</th>
+				<th class="cl_header col-sm-3">Instructor</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="section in _class.sections">
+				<td class="col-sm-2" ng-bind="section.crn"></td>
+				<td  class="col-sm-1" ng-bind="section.sect"></td>
+				<td class="col-sm-1"  ng-bind="ctrl.print_room(section.classroom_id)"></td>
+				<td class="col-sm-2" >{{ctrl.print_days(section.mon, section.tues, section.wed, section.thurs, section.fri, section.sat, section.onl);}}</td>
+				<td class="col-sm-3" >{{ctrl.parse_time(section.begin_time, section.end_time);}}</td>
+				<td class="col-sm-3"ng-bind="ctrl.print_instructor(section.instructor_id)"></td>
+			</tr>
+		</tbody>
+	</table>
+
+<!--
+	<table class="table table-striped" ng-repeat="_class in ctrl.department_class_listing">
+
+
+		<thead>
+			<tr>
+			<th><a ng-href="#/class/{{_class.class_id}}">{{_class.name}}</a></th>
+			</tr>
+			
+			<tr>
+				<th class="col-sm-4">Course #</th>
+				<th class="col-sm-1" >Section</th>
+				<th class="col-sm-2" >Classroom</th>
+				<th class="col-sm-1" >Days</th>
+				<th class="col-sm-2" >Time</th>
+				<th  class="col-sm-2">Instructor</th></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="section in _class.sections">
+				<td class="col-sm-2" ng-bind="section.crn"></td>
+				<td  class="col-sm-2" ng-bind="section.sect"></td>
+				<td class="col-sm-2"  ng-bind="ctrl.print_room(section.classroom_id)"></td>
+				<td class="col-sm-2" >{{ctrl.print_days(section.mon, section.tues, section.wed, section.thurs, section.fri, section.sat, section.onl);}}</td>
+				<td class="col-sm-2" >{{ctrl.parse_time(section.begin_time, section.end_time);}}</td>
+				<td class="col-sm-2"ng-bind="ctrl.print_instructor(section.instructor_id)"></td>
+			</tr>
+		</tbody>				
+	</table>	
+-->
+</div>
+</body>
+</html>

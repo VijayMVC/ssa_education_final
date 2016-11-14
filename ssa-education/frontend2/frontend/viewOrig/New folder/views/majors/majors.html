@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+
+body {
+
+  background-image: url("/img/binary.jpg");
+}
+  
+ .title {
+
+   background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+    font-size: 200%;
+
+}
+
+
+tr {
+  
+  background-color: #f0f0f5;
+  color: black;
+  font-size: 120%;
+
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+  font-size: 120%;
+}
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}
+ */
+
+</style>
+
+
+</head>
+<body>
+
+<div style="width:100%;margin:10px auto;">
+<br>
+	<p class = "title">Major Listings</p>
+	<table class="table table-striped" >
+
+	 <colgroup>
+    <col style="width:   50%" />
+    <col style="width:    25%" />
+    <col style="width:    25%" />
+  </colgroup>
+
+
+		<thead>
+			<tr><th>Name</th>
+			<th>Credits</th>
+			<th>Required</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="major in ctrl.majors">
+			<!-- <td ng-bind="student.first_name + ' ' + student.last_name"></td> -->
+			<td><a href="#/major/{{major.id}}">{{major.name}}</a></td>
+			<td ng-bind="major.req_credits"></td>
+			<td><a href="#/major/classes_for_major/{{major.id}}">Required Classes</a></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>

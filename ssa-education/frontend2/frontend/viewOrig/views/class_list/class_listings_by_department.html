@@ -1,0 +1,27 @@
+<div style="width:50%;margin:10px auto;">
+<h1>Class Listing Details By Department</h1>
+<p>This is the class listing details page for department.id {{ctrl.id}}</p>
+	<table class="table" ng-repeat="_class in ctrl.department_class_listing">
+		<thead>
+			<tr><td><a ng-href="#/class/{{_class.class_id}}">{{_class.name}}</a></td></tr>
+			<tr>
+				<td class="col-xs-2">Course #</td>
+				<td class="col-xs-2">Section</td>
+				<td class="col-xs-2">Classroom</td>
+				<td class="col-xs-2">Days</td>
+				<td class="col-xs-2">Time</td>
+				<td class="col-xs-2">Instructor</td></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="section in _class.sections">
+				<td class="col-xs-2" ng-bind="section.crn"></td>
+				<td class="col-xs-2" ng-bind="section.sect"></td>
+				<td class="col-xs-2">{{section.classroom_id.building_id.name + ' ' + section.classroom_id.num}}</td>
+				<td class="col-xs-2">{{ctrl.print_days(section.mon, section.tues, section.wed, section.thurs, section.fri, section.sat, section.onl);}}</td>
+				<td class="col-xs-2">{{ctrl.parse_time(section.begin_time, section.end_time);}}</td>
+				<td class="col-xs-2">{{section.instructor_id.first_name + ' ' + section.instructor_id.last_name}}</td>
+			</tr>
+		</tbody>				
+	</table>	
+
+</div>

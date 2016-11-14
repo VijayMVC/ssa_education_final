@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+  
+ .title {
+
+   background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+    font-size: 200%;
+
+}
+
+
+tr {
+  
+  background-color: #f0f0f5;
+  color: black;
+  font-size: 120%;
+
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+  font-size: 120%;
+}
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}
+ */
+
+</style>
+
+
+</head>
+<body>
+<div style="width:100%;margin:10px auto;">
+<br>
+<p class = "title">Major Details</p>
+<p>This is the major details page for major.id {{ctrl.id}}</p>
+	<div class="form-group row">
+		<label for="major-id" class="col-xs-2 col-form-label">ID</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" disabled="disabled" type="text" ng-model="ctrl.major.id" id="major-id" readonly="readonly">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="major-name" class="col-xs-2 col-form-label">Name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.major.name" id="major-name" readonly="readonly">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="major-credits" class="col-xs-2 col-form-label">Credits</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.major.req_credits" id="major-credits" readonly="readonly">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="major-description" class="col-xs-2 col-form-label">Description</label>
+		 <div class="col-xs-10">
+		 	<textarea class="form-control" rows="10" cols="50" ng-model="ctrl.major.description" id="major-description" readonly="readonly">
+		 	</textarea>
+		</div>
+  	</div>
+</div>
+</body>
+</html>

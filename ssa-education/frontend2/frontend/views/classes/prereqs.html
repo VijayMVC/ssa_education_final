@@ -1,0 +1,13 @@
+<div style="width:50%;margin:10px auto;">
+	<h1>Prerequisites</h1>
+	<table class="table">
+		<thead>
+			<tr><td>Class</td></tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="prereq in ctrl.prereqs">
+			<td ng-bind="prereq.department_id.code + ' ' + prereq.num"></td>
+		</tr>
+		</tbody>
+	</table>
+</div>

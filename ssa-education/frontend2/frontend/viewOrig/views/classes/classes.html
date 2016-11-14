@@ -1,0 +1,17 @@
+<div style="width:50%;margin:10px auto;">
+	<h1>Class Listing</h1>
+	<table class="table">
+		<thead>
+			<tr><td>Class</td><td>Name</td><td>Credits</td><td>Prerequisites</td></tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="class in ctrl.classes">
+			<!-- <td ng-bind="student.first_name + ' ' + student.last_name"></td> -->
+			<td><a ng-href="#/class/{{class.id}}">{{class.department_id.code + " " + class.num}}</a></td>
+			<td ng-bind="class.name"></td>
+			<td ng-bind="class.credits"></td>
+			<td><a href="#/class/prereqs/{{class.id}}">Prerequisites</a></td>
+		</tr>
+		</tbody>
+	</table>
+</div>

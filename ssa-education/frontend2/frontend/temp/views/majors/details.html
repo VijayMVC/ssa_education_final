@@ -1,0 +1,36 @@
+<div style="width:50%;margin:10px auto;">
+<h1>Major Details</h1>
+<p>This is the major details page for major.id {{ctrl.id}}</p>
+	<div class="form-group row">
+		<label for="major-id" class="col-xs-2 col-form-label">ID</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" disabled="disabled" type="text" ng-model="ctrl.major.id" id="major-id">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="major-name" class="col-xs-2 col-form-label">Name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.major.name" id="major-name">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="major-credits" class="col-xs-2 col-form-label">Credits</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.major.req_credits" id="major-credits">
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="major-description" class="col-xs-2 col-form-label">Description</label>
+		 <div class="col-xs-10">
+		 	<textarea class="form-control" rows="10" cols="50" ng-model="ctrl.major.description" id="major-description"></textarea>
+		 	<!-- <input class="form-control" type="text" ng-model="ctrl.major.description" id="major-description"> -->
+		</div>
+  	</div>
+	<button type="button" class="btn btn-success" ng-click="ctrl.addMajor(ctrl.major.id,ctrl.major.name,ctrl.major.req_credits,ctrl.major.description)">Insert</button>
+	&nbsp;
+	<button type="button" class="btn btn-warning" ng-click="ctrl.updateMajor(ctrl.major.id,ctrl.major.name,ctrl.major.req_credits,ctrl.major.description)">Update</button>
+	&nbsp;
+	<button type="button" class="btn btn-danger" ng-click="ctrl.deleteMajor(ctrl.major.id)">Delete</button>
+	<button type="button" class="btn btn-default" ng-click="ctrl.clear(ctrl.major)">Clear</button>
+	&nbsp;
+</div>

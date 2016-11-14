@@ -1,0 +1,282 @@
+API Documentation:
+
+NOTE: All start with the server name, which in most cases is http://localhost:8080
+==================================================================================
+Major:
+------
+JSON   :  (id, name, description, req_credits)
+
+Func   :  getAllMajors
+URL    :  /majors/major
+Method :  GET
+Params :  None
+Returns:  A JSON list of all the majors
+
+Func   :  getMajorById
+URL    :  /majors/major/{id}
+Method :  GET
+Params :  Integer id
+Returns:  A JSON representation of the major with id {id}
+
+Func   :  getAllClassesForMajor
+URL    :  /majors/list_major_classes/{id}
+Method :  GET
+Params :  Integer id
+Returns:  A JSON representation of the classes required for the major with id {id}
+
+Func   :  addMajor
+URL    :  /majors/major
+Method :  POST
+Params :  Major major
+Returns:  Nothing. Inserts the given major object into the database.
+
+Func   :  updateMajor
+URL    :  /majors/major
+Method :  PUT
+Params :  Major major
+Returns:  Nothing. Updates the current major with the values in the 
+          passed major object.
+		  
+Func   :  deleteMajor
+URL    :  /majors/major/{id}
+Method :  DELETE
+Params :  Integer id
+Returns:  Nothing. Deletes the given major object from the database.
+
+-----------
+SchoolYear:
+-----------
+JSON   :  (id, semester)
+
+Func   :  getAllSchoolYears
+URL    :  /school_years/school_year
+Method :  GET
+Params :  None
+Returns:  A JSON list of all the school years
+
+Func   :  getSchoolYearById
+URL    :  /school_years/school_year/{id}
+Method :  GET
+Params :  Integer id
+Returns:  A JSON representation of the school_year with id {id}
+
+Func   :  addSchoolYear
+URL    :  /school_years/school_year
+Method :  POST
+Params :  SchoolYear sy
+Returns:  Nothing. Inserts the given school year object into the database.
+
+Func   :  updateSchoolYear
+URL    :  /school_years/school_year
+Method :  PUT
+Params :  SchoolYear sy
+Returns:  Nothing. Updates the current school year with the values in the 
+          passed school year object.
+		  
+Func   :  deleteSchoolYear
+URL    :  /school_years/school_year/{id}
+Method :  DELETE
+Params :  Integer id
+Returns:  Nothing. Deletes the given school year object from the database.
+
+--------
+Student:
+--------
+JSON   :  (id, first_name, last_name, first_semester, gpa, major_id)
+
+Func   :  getAllStudents
+URL    :  /students/student
+Method :  GET
+Params :  None
+Returns:  A JSON list of all the students
+
+Func   :  getStudentById
+URL    :  /students/student/{id}
+Method :  GET
+Params :  Integer id
+Returns:  A JSON representation of the student with id {id}
+
+Func   :  addStudent
+URL    :  /students/student
+Method :  POST
+Params :  Student student
+Returns:  Nothing. Inserts the given student object into the database.
+
+Func   :  updateStudent
+URL    :  /students/student
+Method :  PUT
+Params :  Student student
+Returns:  Nothing. Updates the current student with the values in the 
+          passed student object.
+		  
+Func   :  deleteStudent
+URL    :  /students/student/{id}
+Method :  DELETE
+Params :  Integer id
+Returns:  Nothing. Deletes the given student object from the database.
+
+-----------
+Department:
+-----------
+JSON   :  (id, code, name)
+
+Func   :  getAllDepartments
+URL    :  /departments/department
+Method :  GET
+Params :  None
+Returns:  A JSON list of all the departments
+
+Func   :  getDepartmentById
+URL    :  /departments/department/{id}
+Method :  GET
+Params :  Integer id
+Returns:  A JSON representation of the department with id {id}
+
+Func   :  addDepartment
+URL    :  /departments/department
+Method :  POST
+Params :  Department department
+Returns:  Nothing. Inserts the given department object into the database.
+
+Func   :  updateDepartment
+URL    :  /departments/department
+Method :  PUT
+Params :  Department department
+Returns:  Nothing. Updates the current department with the values in the 
+          passed department object.
+		  
+Func   :  deleteDepartment
+URL    :  /departments/department/{id}
+Method :  DELETE
+Params :  Integer id
+Returns:  Nothing. Deletes the given department object from the database.
+
+--------
+Class:
+--------
+JSON   :  (id, department_id, num, name, credits, description)
+
+Func   :  getAllClasses
+URL    :  /classes/class
+Method :  GET
+Params :  None
+Returns:  A JSON list of all the classes
+
+Func   :  getClassesByDepartment
+URL    :  /classes/class_by_department/{id}
+Method :  GET
+Params :  id
+Returns:  A JSON list of all the classes in the department with id {id}
+
+Func   :  getClassById
+URL    :  /classes/class/{id}
+Method :  GET
+Params :  Integer id
+Returns:  A JSON representation of the class with id {id}
+
+Func   :  addClass
+URL    :  /classes/class
+Method :  POST
+Params :  Class _class
+Returns:  Nothing. Inserts the given class object into the database.
+
+Func   :  updateClass
+URL    :  /classes/class
+Method :  PUT
+Params :  Class _class
+Returns:  Nothing. Updates the current class with the values in the 
+          passed class object.
+		  
+Func   :  deleteClass
+URL    :  /classes/class/{id}
+Method :  DELETE
+Params :  Integer id
+Returns:  Nothing. Deletes the given class object from the database.
+
+-----------
+Instructor:
+-----------
+JSON   :  (id, first_name, last_name, year_hired, is_tenured, department_id)
+
+Func   :  getAllInstructors
+URL    :  /instructors/instructor
+Method :  GET
+Params :  None
+Returns:  A JSON list of all the instructors
+
+Func   :  getInstructorById
+URL    :  /instructors/instructor/{id}
+Method :  GET
+Params :  Integer id
+Returns:  A JSON representation of the instructor with id {id}
+
+Func   :  addInstructor
+URL    :  /instructors/instructor
+Method :  POST
+Params :  Instructor instructor
+Returns:  Nothing. Inserts the given instructor object into the database.
+
+Func   :  updateInstructor
+URL    :  /instructors/instructor
+Method :  PUT
+Params :  Instructor instructor
+Returns:  Nothing. Updates the current instructor with the values in the 
+          passed instructor object.
+		  
+Func   :  deleteInstructor
+URL    :  /instructors/instructor/{id}
+Method :  DELETE
+Params :  Integer id
+Returns:  Nothing. Deletes the given instructor object from the database.
+
+---------
+ClassList
+---------
+
+Func   :  getClassList
+URL    :  /class_list
+Method :  GET
+Params :  None
+Returns:  A JSON list of all ClassList objects. Probably only suitable for testing. Should use semester in conjunction.
+
+Func   :  getClassesBySemester
+URL    :  /class_list/list_by_semester/{semester}
+Method :  GET
+Params :  Semester id
+Returns:  A JSON list of all ClassList objects for the semester with the given id.
+
+Func   :  getClassListByDepartment
+URL    :  /class_list/list_by_department/{semester}/{id}
+Method :  GET
+Params :  Semester id, department id
+Returns:  A JSON list of all ClassList objects for the given department id for the semester with the given id.
+
+Func   :  getSectionsOfClass
+URL    :  /class_list/sections_by_class/{semester}/{id}
+Method :  GET
+Params :  Semester id, class id
+Returns:  A JSON list of all ClassList objects for the given class id for the semester with the given id.
+
+Func   :  getClassListByid
+URL    :  /class_list/{id}
+Method :  GET
+Params :  Semester id
+Returns:  A JSON list of the particular ClassList instance with the given id
+
+Func   :  addClassList
+URL    :  /class_list
+Method :  POST
+Params :  ClassList cl
+Returns:  Nothing. Inserts the ClassList object into the database.
+
+Func   :  updateClassList
+URL    :  /class_list
+Method :  PUT
+Params :  ClassList cl
+Returns:  Nothing. Updates the ClassList object in the database.
+
+Func   :  deleteClassList
+URL    :  /class_list
+Method :  DELETE
+Params :  id
+Returns:  Nothing. Deletes the given ClassList object identified by id.

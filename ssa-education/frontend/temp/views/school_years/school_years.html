@@ -1,0 +1,14 @@
+<div style="width:50%;margin:10px auto;">
+	<h1>School Year Listing</h1>
+	<table class="table">
+		<thead>
+			<tr><td>Semester</td></tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="school_year in ctrl.school_years">
+			<!-- <td ng-bind="student.first_name + ' ' + student.last_name"></td> -->
+			<td><a href="#/school_year/{{school_year.id}}">{{school_year.semester}}</a></td>
+		</tr>
+		</tbody>
+	</table>
+</div>

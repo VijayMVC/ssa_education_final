@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+
+body {
+
+  /*background-image: url("/img/binary.jpg");*/
+}
+  
+ .title {
+
+   background-color: #4B515D;
+    text-align:center;
+    color: #fff;
+    font-size: 150%;
+
+}
+
+
+tr {
+  
+  background-color: #f0f0f5;
+  color: black;
+  font-size: 120%;
+
+}
+
+th {
+  
+  background-color:  #4B515D;
+  color: white;
+  font-size: 120%;
+}
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}
+ */
+
+</style>
+
+
+</head>
+
+<body>
+
+<div style="width:70%;margin:10px auto; font-size: 120%;">
+<br>
+<p class = "title">Student Details</p>
+<!-- <p>This is the student details page for student.id {{ctrl.id}}</p> -->
+
+      
+      <p>This is the student details page for student.id {{ctrl.id}}</p>
+
+          <br>
+	<div class="form-group row">
+		<label class="col-xs-2 col-form-label">First Name</label>
+		<div class="col-xs-10">
+			<input class="form-control" type="text" ng-model="ctrl.student.first_name" id="student-first_name" readonly="readonly" />
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="student-last_name" class="col-xs-2 col-form-label">Last Name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="ctrl.student.last_name" id="student-last_name" readonly="readonly" />
+		</div>
+  	</div>
+  	<div class="form-group row">
+		<label for="student-gpa" class="col-xs-2 col-form-label">GPA</label>
+		 <div class="col-xs-10" ng-controller="PortalCtrl as p_ctrl">
+		 	<input class="form-control" type="text" ng-model="p_ctrl.cumm_gpa" id="student-gpa" readonly="readonly" />
+		</div>
+
+  	</div>
+  	<div class="form-group row">
+  		<label for="student-first_semester" class="col-xs-2 col-form-label">First Semester</label>
+  		<div class="col-xs-10">
+  			<input class="form-control" type="text" ng-model="ctrl.student.first_semester.semester" id="student-first_semester" readonly="readonly" />
+  		</div>
+  	</div>
+
+  	<div class="form-group row">
+  		<label for="student-major" class="col-xs-2 col-form-label">Major</label>
+  		<div class="col-xs-10">
+  			<input class="form-control" type="text" ng-model="ctrl.student.major_id.name" id="student-major" readonly="readonly" />
+  		</div>
+  	
+    <br><br>
+
+	<a href="/#/student_portal">Return to academic portal</a>
+  
+  <br><br><br><br><br><br><br><br><br>
+</div>
+</body>
+</html>
